@@ -1,0 +1,21 @@
+accounts:
+  - id: local_account_alpha
+    description: "Local test account without proxy"
+    proxy: null
+    geo:
+      country: "LOCAL"
+      timezone: "UTC"
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    timeout_seconds: 5
+
+checks:
+  - name: "local_ip_check"
+    url: "http://127.0.0.1:5001/ip"
+    expect_json: true
+  - name: "local_headers"
+    url: "http://127.0.0.1:5001/headers"
+    expect_json: true
+
+output_file: "dummy_probe_results.csv"
+
+default_timeout_seconds: 5

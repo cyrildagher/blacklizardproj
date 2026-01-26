@@ -21,6 +21,20 @@ footprint before we wire it into the main betting pipeline.
 3. **Optional**: adjust or add HTTP endpoints under `checks` if you need to hit
    additional services for validation.
 
+## Quick dummy run (no real proxies required)
+
+Use the baked-in sample config and local stub server to verify the pipeline
+before you add sensitive data:
+
+```bash
+python run_dummy_probe.py
+```
+
+This starts an in-process HTTP server that returns canned `/ip` and `/headers`
+responses and then executes `proxy_probe.py` against
+`sample_config_local.yaml`. The script writes `dummy_probe_results.csv`, giving
+you a full dry run without touching external networks.
+
 ## Running the probe
 
 ```bash
